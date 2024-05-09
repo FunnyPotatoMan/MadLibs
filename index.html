@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Funny person from United States go brrrrrrrrr
+        </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>
+            <span>This Person</span> Complains a Lot
+        </h1>
+        <form name="madLibs" method="get" id="madLibs">
+            <label for="state">U.S. State/Territory:</label>
+                <select id="state" name="state">
+                    <option value="Alabama">Alabama</option>
+                    <option value="Alaska">Alaska</option>
+                    <option value="Arizona">Arizona</option>
+                    <option value="Arkansas">Arkansas</option>
+                    <option value="American Samoa">American Samoa</option>
+                    <option value="California">California</option>
+                    <option value="Colorado">Colorado</option>
+                    <option value="Connecticut">Connecticut</option>
+                    <option value="Delaware">Delaware</option>
+                    <option value="the District of Columbia">District of Columbia</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Guam">Guam</option>
+                    <option value="Hawaii">Hawaii</option>
+                    <option value="Idaho">Idaho</option>
+                    <option value="Illinois">Illinois</option>
+                    <option value="Indiana">Indiana</option>
+                    <option value="Iowa">Iowa</option>
+                    <option value="Kansas">Kansas</option>
+                    <option value="Kentucky">Kentucky</option>
+                    <option value="Louisiana">Louisiana</option>
+                    <option value="Maine">Maine</option>
+                    <option value="Maryland">Maryland</option>
+                    <option value="Massachusetts">Massachusetts</option>
+                    <option value="Michigan">Michigan</option>
+                    <option value="Minnesota">Minnesota</option>
+                    <option value="Mississippi">Mississippi</option>
+                    <option value="Missouri">Missouri</option>
+                    <option value="Montana">Montana</option>
+                    <option value="Nebraska">Nebraska</option>
+                    <option value="Nevada">Nevada</option>
+                    <option value="New Hampshire">New Hampshire</option>
+                    <option value="New Jersey">New Jersey</option>
+                    <option value="New Mexico">New Mexico</option>
+                    <option value="New York">New York</option>
+                    <option value="North Carolina">North Carolina</option>
+                    <option value="North Dakota">North Dakota</option>
+                    <option value="the Northern Mariana Islands">Northern Mariana Islands</option>
+                    <option value="Ohio">Ohio</option>
+                    <option value="Oklahoma">Oklahoma</option>
+                    <option value="Oregon">Oregon</option>
+                    <option value="Pennsylvania">Pennsylvania</option>
+                    <option value="Puerto Rico">Puerto Rico</option>
+                    <option value="Rhode Island">Rhode Island</option>
+                    <option value="South Carolina">South Carolina</option>
+                    <option value="South Dakota">South Dakota</option>
+                    <option value="Tennessee">Tennessee</option>
+                    <option value="Texas">Texas</option>
+                    <option value="the Trust Territories">Trust Territories</option>
+                    <option value="Utah">Utah</option>
+                    <option value="Vermont">Vermont</option>
+                    <option value="Virginia">Virginia</option>
+                    <option value="the Virgin Islands">Virgin Islands</option>
+                    <option value="Washington">Washington</option>
+                    <option value="West Virginia">West Virginia</option>
+                    <option value="Wisconsin">Wisconsin</option>
+                    <option value="Wyoming">Wyoming</option>
+                </select>
+            <br>
+            <p></p>
+            <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            <br>
+            <p></p>
+            <label for="pronoun">Subject pronoun:</label>
+                <input type="text" id="pronoun" name="pronoun">
+            <br>
+            <p></p>
+            <label for="adj1">Adjective:</label>
+            <br>
+                <input type="radio" name="adjective1" value="stupid">stupid
+                <br>
+                <input type="radio" name="adjective1" value="barren">barren
+                <br>
+                <input type="radio" name="adjective1" value="bleak">bleak
+                <br>
+                <input type="radio" name="adjective1" value="derelict">derelict
+                <br>
+                <input type="radio" name="adjective1" value="inhospitable">inhospitable
+                <br>
+                <input type="radio" name="adjective1" value="squalid">squalid
+                <br>
+                <input type="radio" name="adjective1" value="delapidated">delapidated
+                <br>
+                <input type="radio" name="adjective1" value="boring">boring
+            <br>
+            <p></p>
+            <label for="place">Place:</label>
+                <textarea id="place" name="place"></textarea>
+            <br>
+            <p></p>
+            <label for="weather">Weather:</label>
+                <textarea id="weather" name="weather"></textarea>
+                <br>
+            <p></p>
+            <label for="adj2">Adjective:</label>
+                <input type="text" id="adj2" name="adj2">
+            <br>
+            <p></p>
+            <label for="inf">Infinitive:</label>
+                <input type="text" id="inf" name="inf">
+            <br>
+            <p></p>
+            <label for="place2">Different Place:</label>
+                <input type="text" id="place2" name="place2">
+            <br>
+            <p></p>
+            <label for="adv">Adverb:</label>
+                <input type="text" id="adv" name="adv">
+            <br>
+            <p></p>
+            <input style="float:center;" type="submit" value="Submit Words">
+        </form>
+        <br>
+        <p></p>
+        <div id="formContents">
+        
+        </div>
+        <script>
+            //Get form contents
+            var form = document.getElementById("madLibs");
+            
+            //Add event listener for submission
+            form.addEventListener("submit", function(event){
+                event.preventDefault();
+                
+                //Get inputs from form
+                var state = document.getElementById("state").value;
+                var name = document.getElementById("name").value;
+                var place = document.getElementById("place").value;
+                var temp = document.getElementsByName("adjective1");
+                var weather = document.getElementById("weather").value;
+                var pronoun = document.getElementById("pronoun").value;
+                var inf = document.getElementById("inf").value;
+                var place2 = document.getElementById("place2").value;
+                var adv = document.getElementById("adv").value;
+                var adj2 = document.getElementById("adj2").value;
+                
+                //Set the first adjective to the correct value
+                //Radio buttons are annoying
+                for (i = 0; i < temp.length; i++) {
+                    if (temp[i].checked)
+                        var adj1 = temp[i].value;
+                }
+                //Get the location to place the story
+                var putStory = document.getElementById("formContents");
+                
+                //Display the story
+                putStory.innerHTML = "Once upon a time, there was a real person whose name was " + name + ".  " + name + " was very dissatisfied with their life in " + state + ", in fact " + name + " found their life there quite " + adj1 + " and decided to move to " + place + ".  " + place + " still was not to " + name + "'s satisfaction, it was too " + weather + " every day.  " + name + " moved again, this time to somewhere " + adj2 + ".  " + name + " was determined " + inf + " to " + place2 + " and there " + pronoun + " lived " + adv + " ever after.";
+            }
+            );
+        </script>
+    </body>
+</html>
